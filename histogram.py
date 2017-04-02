@@ -4,17 +4,19 @@ import sys
 arg = sys.argv
 arg.pop(0)
 
+#created two integers k1,k2 and returns all the words with a total number of occurrences greater than or equal to k1, and less than or equal to k2.
+
 if len(arg) != 2:
-    sys.exit('only take two parameters as input')
+    sys.exit('only two integers please')
 
 try:
     k1 = int(arg[0])
     k2 = int(arg[1])
 except ValueError:
-    sys.exit('invalid input - only accept integer')
+    sys.exit('only accept integer please')
 
 if k1 > k2:
-    sys.exit('invalid interval!')
+    sys.exit('valid interval please')
 
 import psycopg2
 conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
